@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import xadmin
+from extra_apps import xadmin
 from django.conf.urls import url
 from django.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url('xadmin/', xadmin.site.urls),
-    url(r'api/timer', include('testap.urls'))
+    path('testap/', include("testap.urls")),
 
 ]
