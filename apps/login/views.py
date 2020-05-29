@@ -38,7 +38,7 @@ class login(APIView):
     def get(self, request):
         # race_type = request.GET.get('race_type')
         token = request.GET.get('token')
-        token: admin - token
+        # token: admin - token
         if token == 'admin-token':
             data = { "avatar": "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
                     "introduction": "I am a super administrator",
