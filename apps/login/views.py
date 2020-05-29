@@ -16,16 +16,28 @@ import datetime
 
 class login(APIView):
 
-    def get(self, request):
+    # def get(self, request):
+    #     # race_type = request.GET.get('race_type')
+    #     username = request.GET.get('username')
+    #     password = request.GET.get('password')
+    #     if username == 'admin' and password == '123456':
+    #         return Response(ResponseWrapper().execute_success('200'))
+    #     else:
+    #         return Response(ResponseWrapper().mark_custom(False, 500, '密码错误'))
+
+    def post (self, request):
         # race_type = request.GET.get('race_type')
-
-        username = request.GET.get('username')
-        passwd = request.GET.get('passwd')
-
-        if username == 'admin' and passwd == '123456':
-            return Response(ResponseWrapper().execute_success('200'))
+        # username = request.GET.get('username')
+        # password = request.GET.get('password')
+        username = request.data.get('username')
+        password = request.data.get('password')
+        if username == 'admin' and password == '123456':
+            return Response(ResponseWrapper().execute_success({'token': 'admin-token'}))
+        elif username == 'root' and password == '123456':
+            return Response(ResponseWrapper().execute_success({'token': 'editor-token'}))
         else:
             return Response(ResponseWrapper().mark_custom(False, 500, '密码错误'))
+
 
 
 
