@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'xadmin',
     'crispy_forms',
+    'login',
 
 ]
 

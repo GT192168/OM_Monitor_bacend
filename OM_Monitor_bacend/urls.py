@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url('xadmin/', xadmin.site.urls),
     path('api/testap/', include("testap.urls")),
+    path('api/login/', include("login.urls"))
 
 ]
