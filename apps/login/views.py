@@ -26,9 +26,6 @@ class login(APIView):
     #         return Response(ResponseWrapper().mark_custom(False, 500, '密码错误'))
 
     def post (self, request):
-        # race_type = request.GET.get('race_type')
-        # username = request.GET.get('username')
-        # password = request.GET.get('password')
         username = request.data.get('username')
         password = request.data.get('password')
         if username == 'admin' and password == '123456':
@@ -38,7 +35,19 @@ class login(APIView):
         else:
             return Response(ResponseWrapper().mark_custom(False, 500, '密码错误'))
 
-
+    def get(self, request):
+        # race_type = request.GET.get('race_type')
+        token = request.GET.get('token')
+        token: admin - token
+        if token == 'admin-token':
+            data = { "avatar": "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+                    "introduction": "I am a super administrator",
+                    "name": "Super Admin",
+                    "roles": ["admin"],
+                     }
+            return Response(ResponseWrapper().execute_success(data=data))
+        else:
+            return Response(ResponseWrapper().mark_custom(False, 500, '密码错误'))
 
 
 class login1(APIView):
